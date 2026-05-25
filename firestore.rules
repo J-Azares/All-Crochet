@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Products collection
+    match /crochet_products/{productId} {
+      // Allow read access to all users (public products)
+      allow read: if true;
+      
+      // Allow create if user is authenticated
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.description is string
+        && request.resource.data.description.size() > 0
+        && request.resource.data.price is number
+        && request.resource.data.price > 0
+        && request.resource.data.category is string
+        && request.resource.data.imageUrl is string;
+      
+      // Allow update/delete only by the owner
+      allow update, delete: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+      
+      // Allow soft delete (archive) by owner
+      allow update: if request.auth != null
+        && resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          'title', 'description', 'price', 'category', 
+          'imageUrl', 'updatedAt', 'isArchived'
+        ]);
+    }
+    
+    // Users collection (if you add user profiles)
+    match /users/{userId} {
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId;
+    }
+  }
+}
