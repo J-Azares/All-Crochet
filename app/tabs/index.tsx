@@ -3,14 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-
+import LoginScreen from '../../screens/LoginScreen';
 import HomeScreen from '../../screens/HomeScreen';
 import ExploreScreen from '../../screens/ExploreScreen';
 import ProductDetailScreen from '../../screens/ProductDetailScreen';
 import CreateProductScreen from '../../screens/CreateProductScreen';
 import EditProductScreen from '../../screens/EditProductScreen';
 import ProfileScreen from '../../screens/ProfileScreen';
-import LoginScreen from '../../screens/LoginScreen';
+
 import RegisterScreen from '../../screens/RegisterScreen';
 
 const Tab = createBottomTabNavigator();
