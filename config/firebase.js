@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
   apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY || 'YOUR_API_KEY',
@@ -14,8 +15,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// In Firebase v11, getAuth() handles persistence automatically in React Native
-const auth = getAuth(app);
+// Initialize Auth with React Native persistence for session persistence
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
 
 const db = getFirestore(app);
 const storage = getStorage(app);

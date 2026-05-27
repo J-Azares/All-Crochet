@@ -3,12 +3,12 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { loginUser } from '../../../services/authService';
 import { InputField, CustomButton } from '../../../components';
@@ -74,7 +74,7 @@ const LoginScreen = () => {
             label="Email"
             placeholder="Enter your email"
             value={formData.email}
-            onChangeText={(text) => handleInputChange('email', text)}
+             onChangeText={(text: string) => handleInputChange('email', text)}
             error={errors.email}
             keyboardType="email-address"
             style={{}}
@@ -86,7 +86,7 @@ const LoginScreen = () => {
             label="Password"
             placeholder="Enter your password"
             value={formData.password}
-            onChangeText={(text) => handleInputChange('password', text)}
+             onChangeText={(text: string) => handleInputChange('password', text)}
             error={errors.password}
             secureTextEntry
             style={{}}

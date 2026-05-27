@@ -3,12 +3,12 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { registerUser } from '../../../services/authService';
 import { InputField, CustomButton } from '../../../components';
@@ -106,7 +106,7 @@ const RegisterScreen = () => {
             label="Display Name"
             placeholder="Enter your name"
             value={formData.displayName}
-            onChangeText={(text) =>
+            onChangeText={(text: string) =>
               handleInputChange('displayName', text)
             }
             error={errors.displayName}
@@ -119,7 +119,7 @@ const RegisterScreen = () => {
             label="Email"
             placeholder="Enter your email"
             value={formData.email}
-            onChangeText={(text) => handleInputChange('email', text)}
+            onChangeText={(text: string) => handleInputChange('email', text)}
             error={errors.email}
             keyboardType="email-address"
             style={{}}
@@ -131,7 +131,7 @@ const RegisterScreen = () => {
             label="Password"
             placeholder="Create a password"
             value={formData.password}
-            onChangeText={(text) => handleInputChange('password', text)}
+            onChangeText={(text: string) => handleInputChange('password', text)}
             error={errors.password}
             secureTextEntry
             style={{}}
@@ -143,7 +143,7 @@ const RegisterScreen = () => {
             label="Confirm Password"
             placeholder="Confirm your password"
             value={formData.confirmPassword}
-            onChangeText={(text) =>
+            onChangeText={(text: string) =>
               handleInputChange('confirmPassword', text)
             }
             error={errors.confirmPassword}
