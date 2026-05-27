@@ -40,7 +40,7 @@ const HomeScreen = () => {
         title="No Products Yet"
         message="Be the first to add a crochet product!"
         actionLabel="Add Product"
-        onAction={() => navigation.navigate('CreateProduct')}
+        onAction={() => navigation.navigate('CreateTab', { screen: 'CreateProduct' })}
       />
     );
   }

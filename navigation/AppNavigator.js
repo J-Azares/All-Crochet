@@ -39,6 +39,11 @@ const HomeStack = () => {
         component={ProductDetailScreen}
         options={{ title: 'Product Details' }}
       />
+      <Stack.Screen
+        name="EditProduct"
+        component={EditProductScreen}
+        options={{ title: 'Edit Product' }}
+      />
     </Stack.Navigator>
   );
 };
@@ -65,6 +70,11 @@ const ExploreStack = () => {
         name="ProductDetail"
         component={ProductDetailScreen}
         options={{ title: 'Product Details' }}
+      />
+      <Stack.Screen
+        name="EditProduct"
+        component={EditProductScreen}
+        options={{ title: 'Edit Product' }}
       />
     </Stack.Navigator>
   );

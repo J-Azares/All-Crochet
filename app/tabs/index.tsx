@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
+import type { ComponentProps } from 'react';
 import LoginScreen from '../../screens/LoginScreen';
 import HomeScreen from '../../screens/HomeScreen';
 import ExploreScreen from '../../screens/ExploreScreen';
@@ -39,6 +40,11 @@ const HomeStack = () => {
         component={ProductDetailScreen}
         options={{ title: 'Product Details' }}
       />
+      <Stack.Screen
+        name="EditProduct"
+        component={EditProductScreen}
+        options={{ title: 'Edit Product' }}
+      />
     </Stack.Navigator>
   );
 };
@@ -65,6 +71,11 @@ const ExploreStack = () => {
         name="ProductDetail"
         component={ProductDetailScreen}
         options={{ title: 'Product Details' }}
+      />
+      <Stack.Screen
+        name="EditProduct"
+        component={EditProductScreen}
+        options={{ title: 'Edit Product' }}
       />
     </Stack.Navigator>
   );
@@ -129,7 +140,7 @@ const AppNavigator = () => {
     <Tab.Navigator id="mainTabNavigator"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+          let iconName: ComponentProps<typeof Ionicons>['name'] = 'alert-circle';
 
           if (route.name === 'HomeTab') {
             iconName = focused ? 'home' : 'home-outline';
