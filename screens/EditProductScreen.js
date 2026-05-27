@@ -77,7 +77,7 @@ const EditProductScreen = () => {
     }
 
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaType.Images,
+      mediaTypes: ImagePicker.MediaType.images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 0.8,
