@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1074830693454",
+    "firebase_url": "https://finals-project-26b39-default-rtdb.firebaseio.com",
+    "project_id": "finals-project-26b39",
+    "storage_bucket": "finals-project-26b39.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074830693454:android:cffd7a1d700f0d6c029f1f",
+        "android_client_info": {
+          "package_name": "com.anonymous.AllCrochet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074830693454-btsp89svnvlptgqhhqnn63mb76ai9j8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi75i1KykydUVU38LtJOpv86_7PDtxZS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074830693454-btsp89svnvlptgqhhqnn63mb76ai9j8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
